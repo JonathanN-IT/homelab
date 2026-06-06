@@ -6,6 +6,19 @@ Hébergé sur un serveur dédié sous Proxmox VE, gérant plusieurs conteneurs L
 
 ---
 
+## 🖥️ Configuration Matérielle
+
+| Composant | Détail |
+|-----------|--------|
+| **Machine** | MEDION Akoya P5360 E |
+| **CPU** | Intel Core i5-6402P @ 2.80GHz — 4 cœurs |
+| **RAM** | 16 Go DDR4 |
+| **SSD** | 120 Go Samsung (OS + Proxmox) |
+| **HDD** | 3x 1 To (Seagate x2, WD x1) — données & médias |
+| **Stockage total** | ~3.1 To |
+
+---
+
 ## 🏗️ Architecture
 
 ```
@@ -18,8 +31,8 @@ Cloudflare (DNS + Tunnel)
 ┌─────────────────────────────────────────┐
 │           Proxmox VE (Hôte)             │
 │                                         │
-│  CT100 - Média          CT101 - Passerelle  │
-│  CT102 - Web (WordPress) CT103 - Web    │
+│  CT100 - Média       CT101 - Passerelle │
+│  CT102 - Web (WordPress) CT103 - Web   │
 │  CT104 - Bureau Linux                   │
 └─────────────────────────────────────────┘
 ```
@@ -69,6 +82,14 @@ Point dentrée de linfrastructure. Gère le routage de tout le trafic entrant.
 
 ---
 
+## 💾 Sauvegardes
+
+- **Vaultwarden** — Backup automatique quotidien (2h00) avec rotation sur 7 jours
+- Script Bash dédié : sauvegarde SQLite + clé RSA + pièces jointes compressées en .tar.gz
+- **Proxmox** — Snapshots des conteneurs LXC
+
+---
+
 ## 🌐 Domaine & DNS
 
 - Domaine : rippers.be (enregistré chez one.com)
@@ -84,6 +105,7 @@ Point dentrée de linfrastructure. Gère le routage de tout le trafic entrant.
 - **Linux** : Administration système Debian, services systemd
 - **Docker** : Déploiements multi-conteneurs, gestion des volumes et du réseau
 - **Automatisation** : Scripting API Cloudflare (gestion en masse des enregistrements DNS via REST API)
+- **Sauvegardes** : Scripts Bash automatisés avec rotation, sauvegarde SQLite en ligne
 
 ---
 
