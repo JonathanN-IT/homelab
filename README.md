@@ -12,13 +12,13 @@ Hébergé sur un serveur dédié sous Proxmox VE, gérant plusieurs conteneurs L
 Internet
     │
     ▼
-Cloudflare (DNS + Tunnel Zero Trust)
+Cloudflare (DNS + Tunnel)
     │
     ▼
 ┌─────────────────────────────────────────┐
 │           Proxmox VE (Hôte)             │
 │                                         │
-│  CT101 - Passerelle      CT100 - Média  │
+│  CT100 - Média          CT101 - Passerelle  │
 │  CT102 - Web (WordPress) CT103 - Web    │
 │  CT104 - Bureau Linux                   │
 └─────────────────────────────────────────┘
@@ -30,7 +30,7 @@ Cloudflare (DNS + Tunnel Zero Trust)
 
 | Technologie | Rôle |
 |------------|------|
-| **Cloudflare Tunnel** | Accès Zero Trust — aucun port ouvert sur internet |
+| **Cloudflare Tunnel** | Aucun port exposé sur internet — trafic chiffré via tunnel |
 | **Nginx Proxy Manager** | Reverse proxy + certificats SSL/TLS automatiques |
 | **Fail2ban** | Protection contre les attaques brute-force |
 | **Vaultwarden** | Gestionnaire de mots de passe auto-hébergé |
@@ -42,15 +42,6 @@ Cloudflare (DNS + Tunnel Zero Trust)
 
 ## 📦 Conteneurs (LXC)
 
-### CT101 — Passerelle
-Point dentrée de linfrastructure. Gère le routage de tout le trafic entrant.
-
-- **Nginx Proxy Manager** — Reverse proxy avec SSL Lets Encrypt pour 13+ sous-domaines
-- **Cloudflare Tunnel (cloudflared)** — Tunnel sécurisé Zero Trust
-- **Apache Guacamole** — Passerelle daccès distant (RDP/SSH/VNC via navigateur)
-- **Homepage** — Dashboard de supervision de tous les services
-- **Docker** — Orchestration des conteneurs
-
 ### CT100 — Média & Cloud
 - **Plex** — Serveur multimédia personnel
 - **Jellyfin** — Streaming vidéo open-source
@@ -59,6 +50,15 @@ Point dentrée de linfrastructure. Gère le routage de tout le trafic entrant.
 - **Navidrome** — Streaming musical
 - **Jellyseerr** — Gestion des demandes de médias
 - **qBittorrent + Sonarr + Radarr + Lidarr + Prowlarr** — Stack de gestion automatisée des médias
+
+### CT101 — Passerelle
+Point dentrée de linfrastructure. Gère le routage de tout le trafic entrant.
+
+- **Nginx Proxy Manager** — Reverse proxy avec SSL Lets Encrypt pour 13+ sous-domaines
+- **Cloudflare Tunnel (cloudflared)** — Tunnel chiffré sans port ouvert
+- **Apache Guacamole** — Passerelle daccès distant (RDP/SSH/VNC via navigateur)
+- **Homepage** — Dashboard de supervision de tous les services
+- **Docker** — Orchestration des conteneurs
 
 ### CT102 & CT103 — Hébergement Web
 - Instances **WordPress** hébergées derrière Nginx Proxy Manager
@@ -80,7 +80,7 @@ Point dentrée de linfrastructure. Gère le routage de tout le trafic entrant.
 ## 🛠️ Compétences Démontrées
 
 - **Virtualisation** : Proxmox VE, conteneurs LXC, gestion des ressources
-- **Réseau** : Gestion DNS, reverse proxy, SSL/TLS, architecture Zero Trust
+- **Réseau** : Gestion DNS, reverse proxy, SSL/TLS, tunnel Cloudflare
 - **Linux** : Administration système Debian, services systemd
 - **Docker** : Déploiements multi-conteneurs, gestion des volumes et du réseau
 - **Automatisation** : Scripting API Cloudflare (gestion en masse des enregistrements DNS via REST API)
