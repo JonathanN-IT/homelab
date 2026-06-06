@@ -1,8 +1,8 @@
 # 🖥️ Homelab — Infrastructure Auto-Hébergée
 
 Homelab construit de zéro dans le cadre de ma reconversion professionnelle vers
-lAdministration Réseau & Systèmes. Hébergé sur un serveur dédié sous Proxmox VE,
-gérant plusieurs conteneurs LXC et services Docker.
+lAdministration Réseau & Systèmes, avec une spécialisation en virtualisation.
+Hébergé sur un serveur dédié sous Proxmox VE, gérant plusieurs conteneurs LXC et services Docker.
 
 ---
 
@@ -79,9 +79,8 @@ Point dentrée de linfrastructure. Gère le routage de tout le trafic entrant.
 
 ## 🛠️ Compétences Démontrées
 
-- **Virtualisation** : Proxmox VE, conteneurs LXC
-- **Réseau** : Gestion DNS, reverse proxy, SSL/TLS
-- **Sécurité** : Architecture Zero Trust, prévention dintrusion, gestion des secrets
+- **Virtualisation** : Proxmox VE, conteneurs LXC, gestion des ressources
+- **Réseau** : Gestion DNS, reverse proxy, SSL/TLS, architecture Zero Trust
 - **Linux** : Administration système Debian, services systemd
 - **Docker** : Déploiements multi-conteneurs, gestion des volumes et du réseau
 - **Automatisation** : Scripting API Cloudflare (gestion en masse des enregistrements DNS via REST API)
@@ -97,13 +96,11 @@ avec statut ping en temps réel pour chaque service.
 
 ## 🎯 À Propos
 
-Électricien en reconversion vers lAdministration Réseau & Systèmes, avec pour objectif
-de me spécialiser en **Cybersécurité**.
+Électricien en reconversion vers lAdministration Réseau & Systèmes, avec une spécialisation en **virtualisation**.
 Ce homelab est mon environnement dapprentissage pratique — chaque service, configuration
-et décision de sécurité a été recherché, implémenté et débogué par moi-même.
+et décision technique a été recherché, implémenté et débogué par moi-même.
 
-**Formation en cours** : Administrateur Réseau & Systèmes
-**Objectif** : Spécialisation Cybersécurité (Zero Trust, sécurité réseau, ethical hacking)
+**Formation en cours** : Administrateur Réseau & Systèmes — Spécialisation Virtualisation
 
 ---
 
