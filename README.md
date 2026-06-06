@@ -32,7 +32,7 @@ Cloudflare (DNS + Tunnel)
 │           Proxmox VE (Hôte)             │
 │                                         │
 │  CT100 - Média       CT101 - Passerelle │
-│  CT102 - Web (WordPress) CT103 - Web   │
+│  CT102 - Web (WordPress) CT103 - Web    │
 │  CT104 - Bureau Linux                   │
 └─────────────────────────────────────────┘
 ```
