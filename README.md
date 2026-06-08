@@ -1,7 +1,7 @@
 # 🖥️ Homelab — Infrastructure Auto-Hébergée
 
 Homelab construit de zéro dans le cadre de ma reconversion professionnelle vers
-lAdministration Réseau & Systèmes, avec une spécialisation en virtualisation.
+l'Administration Réseau & Systèmes, avec une spécialisation en virtualisation.
 Hébergé sur un serveur dédié sous Proxmox VE, gérant plusieurs conteneurs LXC et services Docker.
 
 ---
@@ -49,7 +49,7 @@ Cloudflare (DNS + Tunnel)
 | **Vaultwarden** | Gestionnaire de mots de passe auto-hébergé |
 | **Cloudflare DNS** | Gestion DNS avec 13+ sous-domaines |
 
-> Tout le trafic externe transite par le tunnel Cloudflare — lIP publique du serveur nest jamais exposée.
+> Tout le trafic externe transite par le tunnel Cloudflare — lIP publique du serveur n'est jamais exposée.
 
 ---
 
@@ -65,11 +65,11 @@ Cloudflare (DNS + Tunnel)
 - **qBittorrent + Sonarr + Radarr + Lidarr + Prowlarr** — Stack de gestion automatisée des médias
 
 ### CT101 — Passerelle
-Point dentrée de linfrastructure. Gère le routage de tout le trafic entrant.
+Point dentrée de l'infrastructure. Gère le routage de tout le trafic entrant.
 
 - **Nginx Proxy Manager** — Reverse proxy avec SSL Lets Encrypt pour 13+ sous-domaines
 - **Cloudflare Tunnel (cloudflared)** — Tunnel chiffré sans port ouvert
-- **Apache Guacamole** — Passerelle daccès distant (RDP/SSH/VNC via navigateur)
+- **Apache Guacamole** — Passerelle d'accès distant (RDP/SSH/VNC via navigateur)
 - **Homepage** — Dashboard de supervision de tous les services
 - **Docker** — Orchestration des conteneurs
 
@@ -118,8 +118,8 @@ avec statut ping en temps réel pour chaque service.
 
 ## 🎯 À Propos
 
-Électricien en reconversion vers lAdministration Réseau & Systèmes, avec une spécialisation en **virtualisation**.
-Ce homelab est mon environnement dapprentissage pratique — chaque service, configuration
+Électricien en reconversion vers l'Administration Réseau & Systèmes, avec une spécialisation en **virtualisation**.
+Ce homelab est mon environnement d'apprentissage pratique — chaque service, configuration
 et décision technique a été recherché, implémenté et débogué par moi-même.
 
 **Formation en cours** : Administrateur Réseau & Systèmes — Spécialisation Virtualisation
