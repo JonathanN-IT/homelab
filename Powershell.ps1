@@ -161,3 +161,17 @@ Set-VMProcessor -VMName SRV-FILE01 -Count 2
 
 Start-VM -Name SRV-FILE01
 
+------------
+SUR FILE 01:
+------------
+
+New-NetIPAddress -Interfacealias "Ethernet" -IPAddress 172.16.50.20 -PrefixLength 24 -DefaultGateway 172.16.50.1
+Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses 172.16.50.10,172.16.50.11
+Disable-NetAdapterBinding -Name "Ethernet" -ComponentID ms_tcpip6
+Rename-Computer -NewName "SRV-FILE01" -Restart
+
+add-computer -DomainName "orion.local" -Restart
+
+
+
+
