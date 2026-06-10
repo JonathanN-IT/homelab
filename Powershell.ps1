@@ -171,7 +171,7 @@ Disable-NetAdapterBinding -Name "Ethernet" -ComponentID ms_tcpip6
 Rename-Computer -NewName "SRV-FILE01" -Restart
 
 add-computer -DomainName "orion.local" -Restart
-
+test
 
 
 
