@@ -104,8 +104,6 @@ Environnement isolé dédié à la reconnaissance et à l'investigation OSINT.
 - **Sublist3r** — Énumération de sous-domaines
 - **ExifTool** — Analyse de métadonnées de fichiers
 
-> Script d'installation : [`scripts/install_osint_ct500.sh`](scripts/install_osint_ct500.sh)
-
 ---
 
 ## 💾 Sauvegardes
