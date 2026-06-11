@@ -28,13 +28,14 @@ Internet
 Cloudflare (DNS + Tunnel)
     │
     ▼
-┌─────────────────────────────────────────┐
-│           Proxmox VE (Hôte)             │
-│                                         │
-│  CT100 - Média       CT101 - Passerelle │
-│  CT102 - Web (WordPress) CT103 - Web    │
-│  CT104 - Bureau Linux                   │
-└─────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────┐
+│                  Proxmox VE (Hôte)                  │
+│                                                     │
+│  CT100 - Média & Cloud    CT101 - Passerelle        │
+│  CT102 - Web (Groinck)    CT103 - Web (Tatouage)    │
+│  CT104 - Bureau Linux     CT105 - DNS (Pi-hole)     │
+│  CT500 - Cybersec / OSINT                           │
+└─────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -45,11 +46,12 @@ Cloudflare (DNS + Tunnel)
 |------------|------|
 | **Cloudflare Tunnel** | Aucun port exposé sur internet — trafic chiffré via tunnel |
 | **Nginx Proxy Manager** | Reverse proxy + certificats SSL/TLS automatiques |
+| **Pi-hole + DNSCrypt** | DNS local filtrant + chiffrement DNS |
 | **Fail2ban** | Protection contre les attaques brute-force |
 | **Vaultwarden** | Gestionnaire de mots de passe auto-hébergé |
 | **Cloudflare DNS** | Gestion DNS avec 13+ sous-domaines |
 
-> Tout le trafic externe transite par le tunnel Cloudflare — lIP publique du serveur n'est jamais exposée.
+> Tout le trafic externe transite par le tunnel Cloudflare — l'IP publique du serveur n'est jamais exposée.
 
 ---
 
@@ -63,22 +65,46 @@ Cloudflare (DNS + Tunnel)
 - **Navidrome** — Streaming musical
 - **Jellyseerr** — Gestion des demandes de médias
 - **qBittorrent + Sonarr + Radarr + Lidarr + Prowlarr** — Stack de gestion automatisée des médias
+- **FlaresolverR** — Bypass Cloudflare pour indexeurs
+- **Threadfin** — Proxy IPTV/M3U
 
 ### CT101 — Passerelle
-Point dentrée de l'infrastructure. Gère le routage de tout le trafic entrant.
+Point d'entrée de l'infrastructure. Gère le routage de tout le trafic entrant.
 
-- **Nginx Proxy Manager** — Reverse proxy avec SSL Lets Encrypt pour 13+ sous-domaines
+- **Nginx Proxy Manager** — Reverse proxy avec SSL Let's Encrypt pour 13+ sous-domaines
 - **Cloudflare Tunnel (cloudflared)** — Tunnel chiffré sans port ouvert
 - **Apache Guacamole** — Passerelle d'accès distant (RDP/SSH/VNC via navigateur)
 - **Homepage** — Dashboard de supervision de tous les services
-- **Docker** — Orchestration des conteneurs
+- **Mealie** — Gestionnaire de recettes auto-hébergé
 
-### CT102 & CT103 — Hébergement Web
-- Instances **WordPress** hébergées derrière Nginx Proxy Manager
+### CT102 — Hébergement Web (Groinck)
+- **WordPress** (Groinck) + MariaDB — derrière Nginx Proxy Manager
+- Nginx, PHP 8.3-FPM, Redis
+
+### CT103 — Hébergement Web (Tatouage)
+- **WordPress** (Tattoo-web) + MariaDB — derrière Nginx Proxy Manager
 
 ### CT104 — Bureau Linux & Sécurité
-- **Environnement bureau Linux** accessible à distance via Guacamole
+- **Environnement bureau Linux** accessible à distance via Guacamole (XRDP / noVNC)
 - **Fail2ban** — Prévention active des intrusions
+
+### CT105 — DNS Local
+- **Pi-hole FTL** — Blocage publicités & tracking sur tout le réseau local
+- **DNSCrypt-proxy** — Chiffrement des requêtes DNS sortantes
+
+### CT500 — Cybersécurité & OSINT
+Environnement isolé dédié à la reconnaissance et à l'investigation OSINT.
+
+- **SpiderFoot** — Framework OSINT avec interface web (port 5001)
+- **Portainer** — Gestion des conteneurs Docker
+- **theHarvester** — Collecte d'emails, sous-domaines, IPs
+- **Recon-ng** — Framework de reconnaissance modulaire
+- **Maigret** — OSINT sur noms d'utilisateur
+- **Holehe** — Vérification d'adresses email sur services tiers
+- **Sublist3r** — Énumération de sous-domaines
+- **ExifTool** — Analyse de métadonnées de fichiers
+
+> Script d'installation : [`scripts/install_osint_ct500.sh`](scripts/install_osint_ct500.sh)
 
 ---
 
@@ -101,10 +127,11 @@ Point dentrée de l'infrastructure. Gère le routage de tout le trafic entrant.
 ## 🛠️ Compétences Démontrées
 
 - **Virtualisation** : Proxmox VE, conteneurs LXC, gestion des ressources
-- **Réseau** : Gestion DNS, reverse proxy, SSL/TLS, tunnel Cloudflare
-- **Linux** : Administration système Debian, services systemd
+- **Réseau** : Gestion DNS, reverse proxy, SSL/TLS, tunnel Cloudflare, Pi-hole
+- **Linux** : Administration système Debian/Ubuntu, services systemd
 - **Docker** : Déploiements multi-conteneurs, gestion des volumes et du réseau
-- **Automatisation** : Scripting API Cloudflare (gestion en masse des enregistrements DNS via REST API)
+- **Cybersécurité** : OSINT, reconnaissance réseau, outils d'investigation
+- **Automatisation** : Scripting Bash, API Cloudflare (gestion DNS en masse via REST API)
 - **Sauvegardes** : Scripts Bash automatisés avec rotation, sauvegarde SQLite en ligne
 
 ---
