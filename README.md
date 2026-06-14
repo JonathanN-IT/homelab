@@ -92,18 +92,6 @@ Point d'entrée de l'infrastructure. Gère le routage de tout le trafic entrant.
 - **Pi-hole FTL** — Blocage publicités & tracking sur tout le réseau local
 - **DNSCrypt-proxy** — Chiffrement des requêtes DNS sortantes
 
-### CT500 — Cybersécurité & OSINT
-Environnement isolé dédié à la reconnaissance et à l'investigation OSINT.
-
-- **SpiderFoot** — Framework OSINT avec interface web (port 5001)
-- **Portainer** — Gestion des conteneurs Docker
-- **theHarvester** — Collecte d'emails, sous-domaines, IPs
-- **Recon-ng** — Framework de reconnaissance modulaire
-- **Maigret** — OSINT sur noms d'utilisateur
-- **Holehe** — Vérification d'adresses email sur services tiers
-- **Sublist3r** — Énumération de sous-domaines
-- **ExifTool** — Analyse de métadonnées de fichiers
-
 ---
 
 ## 💾 Sauvegardes
