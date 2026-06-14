@@ -141,5 +141,5 @@ et décision technique a été recherché, implémenté et débogué par moi-mê
 
 ## 📫 Contact
 
-- **Email** : rjnuttin@gmail.com
+- **Email** : Jon@rippers.be
 - **LinkedIn** : https://www.linkedin.com/in/jonathan-nuttin-it
