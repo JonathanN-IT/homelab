@@ -21,7 +21,7 @@ Bureau Kali Linux complet accessible via navigateur ou Guacamole.
 
 | Outil | Localisation | Usage |
 |-------|-------------|-------|
-| **SpiderFoot 4.0** | `/opt/spiderfoot/venv` — port 5001 | Reconnaissance automatisée |
+| **SpiderFoot 4.0** | `/opt/spiderfoot/venv` | Reconnaissance automatisée |
 | **Maigret** | `/opt/maigret/venv` | Recherche de comptes par pseudo |
 | **Holehe** | `/opt/holehe_env` | Vérification d'emails |
 | **Sherlock** | `/opt/sherlock_env` | Recherche de pseudos sur les réseaux |
@@ -33,9 +33,9 @@ Bureau Kali Linux complet accessible via navigateur ou Guacamole.
 
 ## Services système
 
-- **SpiderFoot** — `systemd` service, port 5001
-- **Portainer CE** — Docker, ports 9000/9443
-- **SSH** — port 22
+- **SpiderFoot** — service systemd
+- **Portainer CE** — Docker
+- **SSH**
 
 ## TODO
 

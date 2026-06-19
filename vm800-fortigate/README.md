@@ -15,7 +15,7 @@ Pare-feu virtuel Fortinet déployé sous Proxmox VE.
 | Méthode | Détail |
 |---------|--------|
 | **SSH** | Via Guacamole → connexion "FortiGate" |
-| **Interface Web** | Via interface FortiOS (port 443) |
+| **Interface Web** | Via interface FortiOS (HTTPS) |
 
 ## Rôle dans l'infrastructure
 

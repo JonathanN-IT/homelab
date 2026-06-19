@@ -28,7 +28,7 @@ Point d'entrée de l'infrastructure. Gère le routage de tout le trafic entrant.
 | PC Windows — SSH | SSH | PC Windows |
 | PC Windows — RDP | RDP | PC Windows |
 | FortiGate | SSH | VM800 |
-| Kali Linux | RDP | CT500 (port 3389) |
+| Kali Linux | RDP | CT500 |
 
 ## Sécurité
 

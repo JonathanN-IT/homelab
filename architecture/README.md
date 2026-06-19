@@ -32,7 +32,7 @@ Cloudflare Edge (SSL terminé)
 CT101 — cloudflared
     │
     ▼
-CT101 — Nginx Proxy Manager (port 80/443)
+CT101 — Nginx Proxy Manager (HTTP/HTTPS)
     │  routing par nom de domaine
     ▼
 Service cible (CT100, CT104, CT500, etc.)
