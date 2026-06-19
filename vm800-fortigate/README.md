@@ -8,7 +8,7 @@ Pare-feu virtuel Fortinet déployé sous Proxmox VE.
 |-------|--------|
 | **OS** | FortiOS 8.0 (Fortinet) |
 | **Plateforme** | FortiGate VM (KVM/Proxmox) |
-| **Licence** | *à compléter* |
+| **Licence** | Licence d'apprentissage (FortiGate VM Trial) |
 
 ## Accès
 
@@ -42,6 +42,7 @@ get system session list
 
 ## TODO
 
-- [ ] Compléter le type de licence
+- [ ] Documenter les interfaces et politiques configurées
+- [ ] Documenter l'intégration réseau avec le reste du homelab
 - [ ] Documenter les interfaces et politiques configurées
 - [ ] Documenter l'intégration réseau avec le reste du homelab
