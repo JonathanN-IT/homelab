@@ -110,11 +110,11 @@ Flux : `Navigateur → Cloudflare Edge → Tunnel → Nginx Proxy Manager → Se
 
 ## À Propos
 
-Électricien en reconversion vers l'Administration Réseau & Systèmes, avec une spécialisation en **cybersécurité et virtualisation**.
+Électricien en reconversion vers l'Administration Réseau & Systèmes.
 Ce homelab est mon environnement d'apprentissage pratique — chaque service, configuration
 et décision technique a été recherché, implémenté et débogué par moi-même.
 
-**Formation en cours** : Administrateur Réseau & Systèmes — Spécialisation Cybersécurité & Virtualisation
+**Formation en cours** : Administrateur Réseau & Systèmes — orientation Cybersécurité (cours débutant sept. 2026)
 
 ---
 
