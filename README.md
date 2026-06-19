@@ -67,7 +67,10 @@ Chaque conteneur a son propre dossier avec détails techniques, services et conf
 | **CT103** | Web (Tatouage) | [→ ct103-web-tatouage/](ct103-web-tatouage/) |
 | **CT104** | Bureau Linux | [→ ct104-bureau-linux/](ct104-bureau-linux/) |
 | **CT105** | DNS | [→ ct105-dns/](ct105-dns/) |
+| **CT301** | ASOV — BookStack | *documentation interne* |
+| **CT401** | Travel & Photos | *documentation interne* |
 | **CT500** | Cybersec / Kali Linux | [→ ct500-cybersec/](ct500-cybersec/) |
+| **VM800** | FortiGate (pare-feu) | [→ vm800-fortigate/](vm800-fortigate/) |
 
 📂 Scripts d'automatisation : [→ scripts/](scripts/)
 📐 Schéma d'architecture : [→ architecture/](architecture/)
