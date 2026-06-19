@@ -7,9 +7,9 @@ Conteneur LXC regroupant les services de streaming, stockage et téléchargement
 | Service | Rôle |
 |---------|------|
 | **Plex** | Serveur multimédia personnel |
-| **Jellyfin** | Streaming vidéo open-source |
-| **Nextcloud** | Stockage cloud privé |
-| **Vaultwarden** | Gestionnaire de mots de passe auto-hébergé |
+| **Jellyfin** | Streaming vidéo open-source (alternative open source à Plex) |
+| **Nextcloud** | Stockage cloud privé auto-hébergé |
+| **Vaultwarden** | Gestionnaire de mots de passe (compatible Bitwarden) |
 | **Navidrome** | Streaming musical |
 | **Jellyseerr** | Gestion des demandes de médias |
 | **qBittorrent + Sonarr + Radarr + Lidarr + Prowlarr** | Stack de gestion automatisée des médias |
@@ -18,11 +18,11 @@ Conteneur LXC regroupant les services de streaming, stockage et téléchargement
 
 ## Sauvegardes
 
-- **Vaultwarden** : backup automatique quotidien (2h00), rotation sur 7 jours.
-  Script Bash dédié : sauvegarde SQLite + clé RSA + pièces jointes, compressé en `.tar.gz`.
-  → voir [`../scripts/`](../scripts/)
+- **Vaultwarden** : backup automatique quotidien à 2h00, rotation sur 7 jours
+- Script Bash dédié : sauvegarde SQLite + clé RSA + pièces jointes compressées en `.tar.gz`
+- → voir [`../scripts/backup-vaultwarden.sh`](../scripts/backup-vaultwarden.sh)
 
-## TODO
+## Choix techniques
 
-- [ ] Ajouter le `docker-compose.yml` réel (anonymisé : retirer domaines/IP/secrets)
-- [ ] Documenter les choix d'architecture (pourquoi Plex + Jellyfin en parallèle, pourquoi cette stack *arr)
+- **Plex + Jellyfin en parallèle** : Plex pour l'expérience mobile/TV, Jellyfin comme alternative 100% open source sans compte requis
+- **Stack \*arr** : automatisation complète du cycle de vie des médias (recherche → téléchargement → organisation → streaming)

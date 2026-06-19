@@ -1,12 +1,12 @@
-# 🖥️ Homelab — Infrastructure Auto-Hébergée
+# Homelab — Infrastructure Auto-Hébergée
 
 Homelab construit de zéro dans le cadre de ma reconversion professionnelle vers
-l'Administration Réseau & Systèmes, avec une spécialisation en virtualisation.
-Hébergé sur un serveur dédié sous Proxmox VE, gérant plusieurs conteneurs LXC et services Docker.
+l'Administration Réseau & Systèmes, avec une spécialisation en cybersécurité et virtualisation.
+Hébergé sur un serveur dédié sous Proxmox VE, gérant plusieurs conteneurs LXC, VMs et services Docker.
 
 ---
 
-## 🖥️ Configuration Matérielle
+## Configuration Matérielle
 
 | Composant | Détail |
 |-----------|--------|
@@ -19,48 +19,50 @@ Hébergé sur un serveur dédié sous Proxmox VE, gérant plusieurs conteneurs L
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 Internet
     │
     ▼
-Cloudflare (DNS + Tunnel)
+Cloudflare (DNS + Tunnel Zero Trust)
     │
     ▼
-┌─────────────────────────────────────────────────────┐
-│                  Proxmox VE (Hôte)                  │
-│                                                     │
-│  CT100 - Média & Cloud    CT101 - Passerelle        │
-│  CT102 - Web (Groinck)    CT103 - Web (Tatouage)    │
-│  CT104 - Bureau Linux     CT105 - DNS (Pi-hole)     │
-│  CT500 - Cybersec / OSINT                           │
-└─────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────┐
+│                      Proxmox VE (Hôte)                       │
+│                                                              │
+│  CT100 — Média & Cloud      CT101 — Passerelle (gateway)     │
+│  CT102 — Web (Groinck)      CT103 — Web (Tatouage)           │
+│  CT104 — Bureau Linux       CT105 — DNS (Pi-hole)            │
+│  CT301 — ASOV (BookStack)   CT401 — Travel & Photos          │
+│  CT500 — Cybersec / Kali    VM800 — FortiGate                │
+└──────────────────────────────────────────────────────────────┘
 ```
+
+Flux : `Navigateur → Cloudflare Edge → Tunnel → Nginx Proxy Manager → Service cible`
 
 ---
 
-## 🔒 Sécurité & Réseau
+## Sécurité & Réseau
 
 | Technologie | Rôle |
 |------------|------|
 | **Cloudflare Tunnel** | Aucun port exposé sur internet — trafic chiffré via tunnel |
-| **Nginx Proxy Manager** | Reverse proxy + certificats SSL/TLS automatiques |
+| **Nginx Proxy Manager** | Reverse proxy + certificats SSL/TLS automatiques (DNS challenge) |
+| **FortiGate VM** | Pare-feu virtuel (FortiOS 8.0) — inspection et filtrage réseau |
 | **Pi-hole + DNSCrypt** | DNS local filtrant + chiffrement DNS |
 | **Fail2ban** | Protection contre les attaques brute-force |
 | **Vaultwarden** | Gestionnaire de mots de passe auto-hébergé |
 | **Cloudflare DNS** | Gestion DNS avec 15+ sous-domaines |
 
-> Tout le trafic externe transite par le tunnel Cloudflare — l'IP publique du serveur n'est jamais exposée.
+> Tout le trafic externe transite par le tunnel Cloudflare Zero Trust — l'IP publique du serveur n'est jamais exposée.
 
 ---
 
-## 📦 Conteneurs (LXC)
+## Conteneurs & VMs
 
-Chaque conteneur a son propre dossier avec détails techniques, services et configuration.
-
-| Conteneur | Rôle | Détails |
-|-----------|------|---------|
+| Instance | Rôle | Détails |
+|----------|------|---------|
 | **CT100** | Média & Cloud | [→ ct100-media/](ct100-media/) |
 | **CT101** | Passerelle | [→ ct101-passerelle/](ct101-passerelle/) |
 | **CT102** | Web (Groinck) | [→ ct102-web-groinck/](ct102-web-groinck/) |
@@ -73,11 +75,24 @@ Chaque conteneur a son propre dossier avec détails techniques, services et conf
 | **VM800** | FortiGate (pare-feu) | [→ vm800-fortigate/](vm800-fortigate/) |
 
 📂 Scripts d'automatisation : [→ scripts/](scripts/)
-📐 Schéma d'architecture : [→ architecture/](architecture/)
+📐 Schéma d'architecture détaillé : [→ architecture/](architecture/)
 
 ---
 
-## 💾 Sauvegardes
+## Compétences Démontrées
+
+- **Virtualisation** : Proxmox VE, conteneurs LXC, VMs KVM, gestion des ressources
+- **Réseau & Sécurité** : FortiGate (FortiOS 8.0), Cloudflare Zero Trust, reverse proxy, SSL/TLS, Pi-hole, Fail2ban
+- **Linux** : Administration système Debian/Ubuntu/Kali, services systemd, scripting Bash
+- **Docker** : Déploiements multi-conteneurs, images custom, gestion volumes et réseau
+- **Cybersécurité** : Kali Linux, OSINT (SpiderFoot, Sherlock, Maigret…), kali-linux-headless, FortiGate
+- **Accès distant** : Apache Guacamole, XRDP, VNC, noVNC — accès SSH/RDP/VNC centralisé
+- **Automatisation** : Scripting Bash, API REST Cloudflare, API Guacamole, API NPM
+- **Sauvegardes** : Scripts Bash automatisés avec rotation, sauvegarde SQLite chiffrée
+
+---
+
+## Sauvegardes
 
 - **Vaultwarden** — Backup automatique quotidien (2h00) avec rotation sur 7 jours
 - Script Bash dédié : sauvegarde SQLite + clé RSA + pièces jointes compressées en .tar.gz
@@ -85,44 +100,25 @@ Chaque conteneur a son propre dossier avec détails techniques, services et conf
 
 ---
 
-## 🌐 Domaine & DNS
+## Domaine & DNS
 
 - Domaine : rippers.be (enregistré chez one.com)
 - DNS géré par **Cloudflare**
-- 13 sous-domaines configurés, chacun routé via Cloudflare Tunnel → Nginx Proxy Manager
+- 15+ sous-domaines configurés, chacun routé via Cloudflare Tunnel → Nginx Proxy Manager
 
 ---
 
-## 🛠️ Compétences Démontrées
+## À Propos
 
-- **Virtualisation** : Proxmox VE, conteneurs LXC, gestion des ressources
-- **Réseau** : Gestion DNS, reverse proxy, SSL/TLS, tunnel Cloudflare, Pi-hole
-- **Linux** : Administration système Debian/Ubuntu, services systemd
-- **Docker** : Déploiements multi-conteneurs, gestion des volumes et du réseau
-- **Cybersécurité** : OSINT, reconnaissance réseau, outils d'investigation
-- **Automatisation** : Scripting Bash, API Cloudflare (gestion DNS en masse via REST API)
-- **Sauvegardes** : Scripts Bash automatisés avec rotation, sauvegarde SQLite en ligne
-
----
-
-## 📊 Dashboard de Supervision
-
-Tous les services sont supervisés via un dashboard **Homepage** auto-hébergé sur home.rippers.be
-avec statut ping en temps réel pour chaque service.
-
----
-
-## 🎯 À Propos
-
-Électricien en reconversion vers l'Administration Réseau & Systèmes, avec une spécialisation en **virtualisation**.
+Électricien en reconversion vers l'Administration Réseau & Systèmes, avec une spécialisation en **cybersécurité et virtualisation**.
 Ce homelab est mon environnement d'apprentissage pratique — chaque service, configuration
 et décision technique a été recherché, implémenté et débogué par moi-même.
 
-**Formation en cours** : Administrateur Réseau & Systèmes — Spécialisation Virtualisation
+**Formation en cours** : Administrateur Réseau & Systèmes — Spécialisation Cybersécurité & Virtualisation
 
 ---
 
-## 📫 Contact
+## Contact
 
 - **Email** : Jon@rippers.be
 - **LinkedIn** : https://www.linkedin.com/in/jonathan-nuttin-it

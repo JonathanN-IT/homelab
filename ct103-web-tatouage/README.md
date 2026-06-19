@@ -1,11 +1,11 @@
 # CT103 — Hébergement Web (Tatouage)
 
-Site WordPress (Tattoo-web) hébergé derrière Nginx Proxy Manager (CT101).
+Site WordPress professionnel pour un salon de tatouage, hébergé derrière Nginx Proxy Manager (CT101).
 
 ## Stack
 
-- **WordPress** (Tattoo-web) + **MariaDB**
+- **WordPress** + **MariaDB**
 
-## TODO
+## Cas d'usage
 
-- [ ] Ajouter le `docker-compose.yml` réel (anonymisé)
+Hébergement d'un site client réel en production — démonstration d'un cas d'usage concret d'auto-hébergement avec SSL automatique via Cloudflare Tunnel.

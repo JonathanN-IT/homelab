@@ -1,13 +1,30 @@
 # CT105 — DNS Local
 
-Filtrage DNS pour tout le réseau local.
+Filtrage DNS et chiffrement pour tout le réseau local.
 
 ## Services
 
-- **Pi-hole FTL** — blocage publicités & tracking
-- **DNSCrypt-proxy** — chiffrement des requêtes DNS sortantes
+| Service | Rôle |
+|---------|------|
+| **Pi-hole FTL** | Blocage publicités & tracking au niveau DNS |
+| **DNSCrypt-proxy** | Chiffrement des requêtes DNS sortantes (DNS-over-HTTPS) |
 
-## TODO
+## Architecture DNS
 
-- [ ] Ajouter la liste des blocklists utilisées
-- [ ] Documenter la config DNSCrypt (upstream resolvers)
+```
+Client réseau local
+    │
+    ▼
+Pi-hole (filtrage + blocage)
+    │
+    ▼
+DNSCrypt-proxy (chiffrement)
+    │
+    ▼
+Resolver externe (DNS-over-HTTPS)
+```
+
+## Avantages
+
+- Blocage des publicités et trackers pour **tous** les appareils du réseau (y compris mobiles et Smart TV) sans configuration par appareil
+- Requêtes DNS chiffrées — le FAI ne peut pas intercepter ni enregistrer les résolutions DNS

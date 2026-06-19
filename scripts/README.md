@@ -1,10 +1,21 @@
 # Scripts d'automatisation
 
-Scripts réels utilisés sur l'infrastructure (anonymisés avant publication : pas d'IP, domaine, token ou clé en dur).
+Scripts utilisés sur l'infrastructure — variables sensibles remplacées par des variables d'environnement.
 
-## À ajouter ici
+| Script | Description |
+|--------|-------------|
+| [`backup-vaultwarden.sh`](backup-vaultwarden.sh) | Sauvegarde quotidienne Vaultwarden : SQLite + clé RSA + pièces jointes, rotation 7 jours |
 
-- `backup-vaultwarden.sh` — sauvegarde quotidienne SQLite + clé RSA + pièces jointes, rotation 7 jours (CT100)
-- `cloudflare-dns-bulk.sh` — gestion des 13+ sous-domaines via l'API REST Cloudflare (CT101)
+## Utilisation
 
-> Remplace les valeurs sensibles par des variables d'environnement (`$CF_API_TOKEN`, `$DOMAIN`, etc.) avant de publier un script.
+```bash
+# Rendre exécutable
+chmod +x backup-vaultwarden.sh
+
+# Configurer les variables
+export BACKUP_DIR="/opt/backups/vaultwarden"
+export VAULTWARDEN_DATA="/opt/vaultwarden/data"
+
+# Ajouter en cron (2h00 chaque nuit)
+0 2 * * * /opt/scripts/backup-vaultwarden.sh >> /var/log/backup-vaultwarden.log 2>&1
+```
