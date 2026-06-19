@@ -8,7 +8,6 @@ Bureau Kali Linux complet accessible via navigateur ou Guacamole.
 
 | Accès | URL / Info |
 |-------|-----------|
-| **Web (noVNC)** | https://kali.rippers.be/vnc.html |
 | **Guacamole (RDP)** | Connexion "Kali Linux" dans Guacamole |
 
 ### Stack Docker (`/opt/kali-desktop/`)
