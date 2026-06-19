@@ -49,7 +49,7 @@ Cloudflare (DNS + Tunnel)
 | **Pi-hole + DNSCrypt** | DNS local filtrant + chiffrement DNS |
 | **Fail2ban** | Protection contre les attaques brute-force |
 | **Vaultwarden** | Gestionnaire de mots de passe auto-hébergé |
-| **Cloudflare DNS** | Gestion DNS avec 13+ sous-domaines |
+| **Cloudflare DNS** | Gestion DNS avec 15+ sous-domaines |
 
 > Tout le trafic externe transite par le tunnel Cloudflare — l'IP publique du serveur n'est jamais exposée.
 
@@ -67,7 +67,7 @@ Chaque conteneur a son propre dossier avec détails techniques, services et conf
 | **CT103** | Web (Tatouage) | [→ ct103-web-tatouage/](ct103-web-tatouage/) |
 | **CT104** | Bureau Linux | [→ ct104-bureau-linux/](ct104-bureau-linux/) |
 | **CT105** | DNS | [→ ct105-dns/](ct105-dns/) |
-| **CT500** | Cybersec / OSINT | [→ ct500-cybersec/](ct500-cybersec/) |
+| **CT500** | Cybersec / Kali Linux | [→ ct500-cybersec/](ct500-cybersec/) |
 
 📂 Scripts d'automatisation : [→ scripts/](scripts/)
 📐 Schéma d'architecture : [→ architecture/](architecture/)
