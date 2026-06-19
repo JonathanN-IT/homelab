@@ -117,7 +117,10 @@ et décision technique a été recherché, implémenté et débogué par moi-mê
 **Formation en cours** : Administrateur Réseau & Systèmes — orientation Cybersécurité (cours débutant sept. 2026)
 
 **Certifications** :
-- Fortinet **NSE 1** — Network Security Associate : Introduction to the Threat Landscape 3.0
+
+| Badge | Certification |
+|-------|--------------|
+| <img src="https://training.fortinet.com/pluginfile.php/1/local_cert/badgeimages/122/badge_9b3a946f-be9f-457e-b9e9-6f2eec0f60e8.png" width="80"/> | Fortinet **NSE 1** — Network Security Associate : Introduction to the Threat Landscape 3.0 |
 
 ---
 
