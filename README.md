@@ -116,6 +116,9 @@ et décision technique a été recherché, implémenté et débogué par moi-mê
 
 **Formation en cours** : Administrateur Réseau & Systèmes — orientation Cybersécurité (cours débutant sept. 2026)
 
+**Certifications** :
+- Fortinet **NSE 1** — Network Security Associate : Introduction to the Threat Landscape 3.0
+
 ---
 
 ## Contact
