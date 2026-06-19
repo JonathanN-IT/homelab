@@ -57,40 +57,20 @@ Cloudflare (DNS + Tunnel)
 
 ## 📦 Conteneurs (LXC)
 
-### CT100 — Média & Cloud
-- **Plex** — Serveur multimédia personnel
-- **Jellyfin** — Streaming vidéo open-source
-- **Nextcloud** — Stockage cloud privé
-- **Vaultwarden** — Gestionnaire de mots de passe
-- **Navidrome** — Streaming musical
-- **Jellyseerr** — Gestion des demandes de médias
-- **qBittorrent + Sonarr + Radarr + Lidarr + Prowlarr** — Stack de gestion automatisée des médias
-- **FlaresolverR** — Bypass Cloudflare pour indexeurs
-- **Threadfin** — Proxy IPTV/M3U
+Chaque conteneur a son propre dossier avec détails techniques, services et configuration.
 
-### CT101 — Passerelle
-Point d'entrée de l'infrastructure. Gère le routage de tout le trafic entrant.
+| Conteneur | Rôle | Détails |
+|-----------|------|---------|
+| **CT100** | Média & Cloud | [→ ct100-media/](ct100-media/) |
+| **CT101** | Passerelle | [→ ct101-passerelle/](ct101-passerelle/) |
+| **CT102** | Web (Groinck) | [→ ct102-web-groinck/](ct102-web-groinck/) |
+| **CT103** | Web (Tatouage) | [→ ct103-web-tatouage/](ct103-web-tatouage/) |
+| **CT104** | Bureau Linux | [→ ct104-bureau-linux/](ct104-bureau-linux/) |
+| **CT105** | DNS | [→ ct105-dns/](ct105-dns/) |
+| **CT500** | Cybersec / OSINT | [→ ct500-cybersec/](ct500-cybersec/) |
 
-- **Nginx Proxy Manager** — Reverse proxy avec SSL Let's Encrypt pour 13+ sous-domaines
-- **Cloudflare Tunnel (cloudflared)** — Tunnel chiffré sans port ouvert
-- **Apache Guacamole** — Passerelle d'accès distant (RDP/SSH/VNC via navigateur)
-- **Homepage** — Dashboard de supervision de tous les services
-- **Mealie** — Gestionnaire de recettes auto-hébergé
-
-### CT102 — Hébergement Web (Groinck)
-- **WordPress** (Groinck) + MariaDB — derrière Nginx Proxy Manager
-- Nginx, PHP 8.3-FPM, Redis
-
-### CT103 — Hébergement Web (Tatouage)
-- **WordPress** (Tattoo-web) + MariaDB — derrière Nginx Proxy Manager
-
-### CT104 — Bureau Linux & Sécurité
-- **Environnement bureau Linux** accessible à distance via Guacamole (XRDP / noVNC)
-- **Fail2ban** — Prévention active des intrusions
-
-### CT105 — DNS Local
-- **Pi-hole FTL** — Blocage publicités & tracking sur tout le réseau local
-- **DNSCrypt-proxy** — Chiffrement des requêtes DNS sortantes
+📂 Scripts d'automatisation : [→ scripts/](scripts/)
+📐 Schéma d'architecture : [→ architecture/](architecture/)
 
 ---
 
